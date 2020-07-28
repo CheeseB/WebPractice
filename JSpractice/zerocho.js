@@ -2,10 +2,10 @@ var word = '끝말잇기';
 
 while (true) {
   var answer = prompt(word);
-  if(word[word.length - 1] === answer[0]) {
+  if (word[word.length - 1] === answer[0]) {
     alert('correct');
     word = answer;
-  }else {
+  } else {
     alert('try again');
   }
 }
