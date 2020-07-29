@@ -4,23 +4,30 @@ var word = document.createElement('div');
 word.textContent = '제로초';
 body.append(word);
 
+var form = document.createElement('form');
+body.append(form);
+
 var input = document.createElement('input');
-body.append(input);
+form.append(input);
 
 var button = document.createElement('button');
 button.textContent = '등록';
-body.append(button);
+form.append(button);
 
 var result = document.createElement('div');
 body.append(result);
 
-button.addEventListener('click', function callback() {
-	// 콜백함수 이름은 생략 가능
+form.addEventListener('submit', function (event) {
+	event.preventDefault();
+	
 	if (word.textContent[word.textContent.length - 1] === input.value[0]) {
-		result.textContent = '오예';
+		result.textContent = '정답';
 		word.textContent = input.value;
 		input.value = '';
+		input.focus();
 	} else {
-		result.textContent = '으엑';
+		result.textContent = '땡';
+		input.value = '';
+		input.focus();
 	}
 });
